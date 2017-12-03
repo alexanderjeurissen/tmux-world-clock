@@ -9,7 +9,7 @@ source $CURRENT_DIR/scripts/helpers.sh
 
 do_interpolation() {
   local string="$1"
-  local interpolated="${string/$pomodoro_status_interpolation_string/$world_clock_status}"
+  local interpolated="${string/$world_clock_status_interpolation_string/$world_clock_status}"
   echo "$interpolated"
 }
 
