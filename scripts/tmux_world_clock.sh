@@ -8,7 +8,7 @@ tz_one_default_value="US/Pacific"
 tz_one="$(get_tmux_option "@tmux_world_clock_tz_one" "$tz_one_default_value")"
 
 tz_two_default_value="Europe/Amsterdam"
-tz_two="$(get_tmux_option "@tmux_world_clock_tz_one" "$tz_one_default_value")"
+tz_two="$(get_tmux_option "@tmux_world_clock_tz_two" "$tz_two_default_value")"
 
 _get_date_time() {
 python - $1 <<-EOF
