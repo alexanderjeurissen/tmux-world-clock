@@ -14,6 +14,8 @@ This plugin is useful if:
 
 Tested and working on OSX, but given most date logic is in python should also work on Linux and Cygwin.
 
+![image](https://raw.githubusercontent.com/alexanderjeurissen/tmux-world-clock/master/screenshots/screenshot.png)
+
 ### Usage
 
 The timezones are configurable and uses the Olson tz database. This means that you need to specify
@@ -27,8 +29,6 @@ Example configuration:
     set -g @tmux_world_clock_tz_two "US/Pacific"
 
     set-option -g status-right "#[bg=blue, fg=black] #{world_clock_status"
-
-![image](https://raw.githubusercontent.com/alexanderjeurissen/tmux-world-clock/master/screenshots/screenshot.png)
 
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
