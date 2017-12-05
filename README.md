@@ -9,7 +9,7 @@ This plugin is useful if:
 
 - you spend most of your time in Tmux and don't want to "switch" away from the terminal to check the
   current time.
-- you regularly collaborate with people in a different timezone and want to keep track of their
+- you regularly collaborate with people in different timezones and want to keep track of their
   local time.
 
 Tested and working on OSX, but given most date logic is in python should also work on Linux and Cygwin.
@@ -23,12 +23,16 @@ the timezones in that format which for CET for example can be: `Europe/Amsterdam
 
 Add #{world_clock_status} format string to your existing status-right tmux option.
 
-Example configuration:
+Example configuration for showing CET / PST / IST simultaniously:
 
-    set -g @tmux_world_clock_tz_one "Europe/Amsterdam"
-    set -g @tmux_world_clock_tz_two "US/Pacific"
+    set -g @world_clock_tz 'Europe/Amsterdam'
+    set -g @world_clock_tz 'US/Pacific'
+    set -g @world_clock_tz 'Asia/Kolkata'
 
-    set-option -g status-right "#[bg=blue, fg=black] #{world_clock_status"
+    set-option -g status-right "#[bg=blue, fg=black] #{world_clock_status "
+
+There is no limit on the number of timezones that can be included this way (except from screen real
+estate ;) )
 
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
@@ -56,3 +60,8 @@ Reload TMUX environment:
     $ tmux source-file ~/.tmux.conf
 
 `#{world_clock_status}` interpolation should now work.
+
+### Requirements
+
+This plugin uses python, and more specifically the `pytz` package to do the timezone magic, as such
+having python 2.7 or python 3.0 installed is required for this plugin to work.
