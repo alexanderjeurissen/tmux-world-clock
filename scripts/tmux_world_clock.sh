@@ -4,12 +4,6 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source "$CURRENT_DIR/helpers.sh"
 
-tz_one_default_value="US/Pacific"
-tz_one="$(get_tmux_option "@tmux_world_clock_tz_one" "$tz_one_default_value")"
-
-tz_two_default_value="Europe/Amsterdam"
-tz_two="$(get_tmux_option "@tmux_world_clock_tz_two" "$tz_two_default_value")"
-
 _get_date_time() {
 python - $1 <<-EOF
 import sys
@@ -28,7 +22,20 @@ EOF
 }
 
 print_time_info() {
-  echo "$(_get_date_time "$tz_one") | $(_get_date_time "$tz_two")"
+  local timezones="`time_zone_list_helper`"
+  local last_timezone=""
+
+  for timezone in $timezones; do
+    if [ ! -z $last_timezone ]; then
+      printf "$(_get_date_time "$last_timezone") | "
+    fi
+    last_timezone=$timezone
+  done
+
+  # Process last timezone and don't include separator
+  if [ ! -z $last_timezone ]; then
+    printf "$(_get_date_time "$last_timezone")"
+  fi
 }
 
 print_time_info
