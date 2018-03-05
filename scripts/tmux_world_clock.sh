@@ -17,7 +17,7 @@ date = datetime.now(pytz.timezone(tz))
 formatted_time = date.strftime("%I:%M %p")
 tz_name = date.tzname()
 
-print "#[bold]{0}#[nobold]: {1}".format(tz_name, formatted_time)
+print("#[bold]{0}#[nobold]: {1}".format(tz_name, formatted_time))
 EOF
 }
 

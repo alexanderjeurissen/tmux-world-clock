@@ -26,7 +26,8 @@ update_tmux_option() {
 
 _tmux_conf_contents() {
   cat /etc/tmux.conf ~/.tmux.conf 2>/dev/null
-  if [ "$1" == "full" ]; then # also output content from sourced files
+  if [ "$1" == "full" ]; then
+    # also output content from sourced files
     local file
     for file in $(_sourced_files); do
       cat $(_manual_expansion "$file") 2>/dev/null
