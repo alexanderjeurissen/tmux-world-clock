@@ -18,10 +18,8 @@ Tested and working on OSX, but given most date logic is in python should also wo
 
 ### Usage
 
-The timezones are configurable and uses the Olson tz database. This means that you need to specify
+The **timezones** are configurable and uses the Olson tz database. This means that you need to specify
 the timezones in that format which for CET for example can be: `Europe/Amsterdam`
-
-Add #{world_clock_status} format string to your existing status-right tmux option.
 
 Example configuration for showing CET / PST / IST simultaniously:
 
@@ -29,10 +27,35 @@ Example configuration for showing CET / PST / IST simultaniously:
     set -g @world_clock_tz 'US/Pacific'
     set -g @world_clock_tz 'Asia/Kolkata'
 
-    set-option -g status-right "#[bg=blue, fg=black] #{world_clock_status "
-
 There is no limit on the number of timezones that can be included this way (except from screen real
 estate ;) )
+
+**Foreground and background colors** are configurable. The statements are optional, they default.
+to not setting foreground (fgcolor) or background (bgcolor) colors.
+
+    set -g @world_clock_fgcolor 'red'
+    set -g @world_clock_bgcolor 'black'
+
+
+The **separator character** is configurable. The following configstatement is optional, it defaults
+to the original tmux-world-clock default ("|").
+
+    set -g @world_clock_separator '--time--'
+
+
+The **output format** is configurable. It generally follows the syntax for datetime.date.strftime, but since
+you also might want to output the timezone name, it supports "%tz" additionally. Due to internal processing,
+any whitespace (" ") in the fmt string must be specified as an underscore ("_"). The following statement is
+optional, it defaults to the original tmux-world-clock default ("%tz:_%I:%M").
+
+    set -g @world_clock_fmt '%H:%M_%tz'
+
+
+Add #{world_clock_status} format string to your existing status-right tmux option.
+
+    set-option -g status-right "#[bg=blue, fg=black]#{world_clock_status}"
+
+(Your color selections here might get overridden by the fgcolor and bgcolor options.)
 
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
