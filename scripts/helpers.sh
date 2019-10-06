@@ -40,3 +40,29 @@ time_zone_list_helper() {
 	_tmux_conf_contents "full" |
 		awk '/^[ \t]*set(-option)? +-g +@world_clock_tz/ { gsub(/'\''/,""); gsub(/'\"'/,""); print $4 }'
 }
+
+
+time_zone_bg_helper() {
+  # read set -g @world_clock_ "bgcolor' entry
+	_tmux_conf_contents "full" |
+		awk '/^[ \t]*set(-option)? +-g +@world_clock_bgcolor/ { gsub(/'\''/,""); gsub(/'\"'/,""); print $4 }'
+}
+
+time_zone_fg_helper() {
+  # read set -g @world_clock_ "fgcolor' entry
+	_tmux_conf_contents "full" |
+		awk '/^[ \t]*set(-option)? +-g +@world_clock_fgcolor/ { gsub(/'\''/,""); gsub(/'\"'/,""); print $4 }'
+}
+
+time_zone_fmt_helper() {
+  # read set -g @world_clock_ "fmt' entry
+	_tmux_conf_contents "full" |
+		awk '/^[ \t]*set(-option)? +-g +@world_clock_fmt/ { gsub(/'\''/,""); gsub(/'\"'/,""); print $4 }'
+}
+
+time_zone_separator_helper() {
+  # read set -g @world_clock_ "fmt' entry
+	_tmux_conf_contents "full" |
+		awk '/^[ \t]*set(-option)? +-g +@world_clock_separator/ { gsub(/'\''/,""); gsub(/'\"'/,""); print $4 }'
+}
+
