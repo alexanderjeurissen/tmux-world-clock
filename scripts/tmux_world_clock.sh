@@ -68,6 +68,11 @@ print_time_info() {
   if [ ! -z $last_timezone ]; then
     echo -n "$(_get_date_time "$last_timezone" "$bgcolor" "$fgcolor" "$fmt") "
   fi
+
+  #-- this echo (outputs <lf>) is mandatory
+  #   if not given, all plugins are run all the time with no scheduling
+  #   not sure if this is desired behavior or a bug
+  echo ""
 }
 
 print_time_info
