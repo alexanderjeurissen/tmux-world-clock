@@ -14,7 +14,7 @@ This plugin is useful if:
 
 Tested and working on OSX, but given most date logic is in python should also work on Linux and Cygwin.
 
-![image](https://raw.githubusercontent.com/alexanderjeurissen/tmux-world-clock/master/screenshots/screenshot.png)
+![image](https://raw.githubusercontent.com/alexanderjeurissen/tmux-world-clock/main/screenshots/screenshot.png)
 
 ### Usage
 
