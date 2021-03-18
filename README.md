@@ -24,7 +24,7 @@ the timezones in that format which for CET for example can be: `Europe/Amsterdam
 Example configuration for showing CET / PST / IST simultaniously:
 
     set -g @world_clock_tz 'Europe/Amsterdam'
-    set -g @world_clock_tz 'US/Pacific'
+    set -g @world_clock_tz 'America/Los_Angeles'
     set -g @world_clock_tz 'Asia/Kolkata'
 
 There is no limit on the number of timezones that can be included this way (except from screen real
