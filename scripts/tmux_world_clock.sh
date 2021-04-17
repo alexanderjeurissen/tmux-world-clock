@@ -30,7 +30,7 @@ formatted_time = date.strftime(date_fmt)
 fgstr="" if fg=="default" else '#[fg='+fg+']'
 bgstr="" if bg=="default" else '#[bg='+bg+']'
 
-print fgstr+bgstr+" "+formatted_time
+print(fgstr+bgstr+" "+formatted_time)
 EOF
 }
 
